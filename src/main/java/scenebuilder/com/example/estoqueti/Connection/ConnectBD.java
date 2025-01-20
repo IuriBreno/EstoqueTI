@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 public class ConnectBD {
 
+    //Conexão com meu banco
     private static final String URL = "jdbc:mysql://localhost:3306/bd_estoque";
     private static final String USER = "root";
     private static final String PASSWORD = "Iblf@2024";
