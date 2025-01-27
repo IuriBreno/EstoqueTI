@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane layoutX="1.0" layoutY="1.0" prefHeight="126.0" prefWidth="600.0">
+         <left>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@resources/LOGO_VULCABRAS_V_cor.png" />
+               </image>
+            </ImageView>
+         </left>
+         <center>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text fill="#f8f7f7" layoutX="33.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CONTROLE DE ESTOQUE - TI" textAlignment="CENTER">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+      <AnchorPane layoutY="153.0" prefHeight="247.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="59.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/visu_estoque.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="80.0" fitWidth="88.0" layoutX="475.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/realiza_saida.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="14.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar itens">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="437.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizar saída">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="260.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/HISTÓRICO.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="215.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movimentações">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

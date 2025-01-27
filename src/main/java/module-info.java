@@ -8,4 +8,7 @@ module scenebuilder.com.example.estoqueti {
 
     opens scenebuilder.com.example.estoqueti to javafx.fxml;
     exports scenebuilder.com.example.estoqueti;
+    exports scenebuilder.com.example.estoqueti.Controller;
+    opens scenebuilder.com.example.estoqueti.Controller to javafx.fxml;
+
 }
