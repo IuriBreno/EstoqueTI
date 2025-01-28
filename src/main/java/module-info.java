@@ -5,6 +5,7 @@ module scenebuilder.com.example.estoqueti {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;
+    requires java.desktop;
 
     opens scenebuilder.com.example.estoqueti to javafx.fxml;
     exports scenebuilder.com.example.estoqueti;
