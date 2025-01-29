@@ -2,15 +2,20 @@ package scenebuilder.com.example.estoqueti.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import scenebuilder.com.example.estoqueti.Model.Login;
 import scenebuilder.com.example.estoqueti.Repository.LoginRepository;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,6 +33,7 @@ public class LoginController implements Initializable {
 
     LoginRepository loginRepository = new LoginRepository();
     Login login;
+    TelaUsuarioController telaUsuarioController;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -38,19 +44,34 @@ public class LoginController implements Initializable {
 
 
         if(validaCamposVazios()){
-            String nomeUsuario = usuario.getText().toString();
-//          String senhaUsuario = senha.getText();
+            //String nomeUsuario = usuario.getText().toString();
+            //String senhaUsuario = senha.getText();
 
             Login dadosLogin = new Login(usuario.getText().toString(),senha.getText());
 
+            try {
+                Stage stage = (Stage) usuario.getScene().getWindow(); // Obtém a janela atual
+                FXMLLoader loader = new FXMLLoader();
 
-            if (loginRepository.validaLoginAdm(dadosLogin)) {//verifica se o método retorno algo verdadeiro
-                System.out.println("EXISTE ADM. VAMOS CHAMAR AGORA A TELA DO ADM");
-//            //se não existir adm com esse usuario ou senha, vai verificar se existe na tabela de usuarios
-            } else if (loginRepository.validaLoginUser(dadosLogin)) {
-                System.out.println("EXISTE USUARIO. VAMOS CHAMAR AGORA A TELA DO USUARIO NORMAL");
-            }else{
-                System.out.println("NÃO EXISTE USUARIO E NEM ADM");
+                if (loginRepository.validaLoginAdm(dadosLogin)) {
+                    System.out.println("EXISTE ADM. VAMOS CHAMAR AGORA A TELA DO ADM");
+                    loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
+                } else if (loginRepository.validaLoginUser(dadosLogin)) {
+                    System.out.println("EXISTE USUÁRIO. VAMOS CHAMAR A TELA DO USUÁRIO");
+                    loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
+                } else {
+                    System.out.println("NÃO EXISTE USUÁRIO E NEM ADM");
+                    return;
+                }
+
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+
+
+            }catch (Exception e){
+                System.out.println(e.getMessage());
             }
 
         }

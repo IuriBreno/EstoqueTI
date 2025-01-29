@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="scenebuilder.com.example.estoqueti.Controller.LoginController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenebuilder.com.example.estoqueti.Controller.TelaAdmController">
    <children>
       <BorderPane layoutX="1.0" layoutY="1.0" prefHeight="126.0" prefWidth="600.0">
          <left>
@@ -31,34 +31,44 @@
       </BorderPane>
       <AnchorPane layoutY="153.0" prefHeight="247.0" prefWidth="600.0">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="260.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="343.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/visu_estoque.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="88.0" layoutX="445.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="64.0" fitWidth="62.0" layoutX="500.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/realiza_saida.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="215.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar itens">
+            <Text fill="WHITE" layoutX="323.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar itens">
                <font>
-                  <Font size="26.0" />
+                  <Font size="19.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="407.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizar saída">
+            <Text fill="WHITE" layoutX="473.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizar saída" wrappingWidth="115.0068359375">
                <font>
-                  <Font size="26.0" />
+                  <Font size="19.0" />
                </font>
             </Text>
-            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="80.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="32.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/inventario_adm.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="62.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventário">
+            <Text fill="WHITE" layoutX="21.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventário">
                <font>
-                  <Font size="26.0" />
+                  <Font size="19.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="64.0" fitWidth="62.0" layoutX="180.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@resources/HISTÓRICO.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="153.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movimentações">
+               <font>
+                  <Font size="19.0" />
                </font>
             </Text>
          </children>
