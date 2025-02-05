@@ -41,24 +41,24 @@
                   <Image url="@resources/realiza_saida.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="14.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar itens">
+            <Text fill="WHITE" layoutX="21.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar estoque" wrappingWidth="171.4541015625">
                <font>
-                  <Font size="26.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="437.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizar saída">
+            <Text fill="WHITE" layoutX="455.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Realizar saída">
                <font>
-                  <Font size="26.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="260.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="282.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/HISTÓRICO.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="215.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movimentações">
+            <Text fill="WHITE" layoutX="252.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Movimentações">
                <font>
-                  <Font size="26.0" />
+                  <Font size="20.0" />
                </font>
             </Text>
          </children>
