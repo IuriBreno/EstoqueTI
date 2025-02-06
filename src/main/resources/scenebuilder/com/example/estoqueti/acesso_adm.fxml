@@ -41,7 +41,7 @@
                   <Image url="@resources/realiza_saida.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="323.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar itens">
+            <Text fill="WHITE" layoutX="308.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Visualizar estoque">
                <font>
                   <Font size="19.0" />
                </font>
