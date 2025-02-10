@@ -11,11 +11,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import scenebuilder.com.example.estoqueti.Model.Login;
+import scenebuilder.com.example.estoqueti.Model.Usuario;
 import scenebuilder.com.example.estoqueti.Repository.LoginRepository;
 
-import javax.swing.*;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -32,7 +30,7 @@ public class LoginController implements Initializable {
     private TextField usuario;
 
     LoginRepository loginRepository = new LoginRepository();
-    Login login;
+    Usuario login;
     TelaUsuarioController telaUsuarioController;
 
     @Override
@@ -47,7 +45,7 @@ public class LoginController implements Initializable {
             //String nomeUsuario = usuario.getText().toString();
             //String senhaUsuario = senha.getText();
 
-            Login dadosLogin = new Login(usuario.getText().toString(),senha.getText());
+            Usuario dadosLogin = new Usuario(usuario.getText().toString(),senha.getText());
 
             try {
                 Stage stage = (Stage) usuario.getScene().getWindow(); // Obtém a janela atual

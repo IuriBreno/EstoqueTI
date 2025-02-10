@@ -1,11 +1,12 @@
 package scenebuilder.com.example.estoqueti.Model;
 
-public class Login {
+public class Usuario {
 
-    public String usuario;
-    public String senha;
 
-    public Login(String usuario, String senha) {
+    private String usuario;
+    private String senha;
+
+    public Usuario(String usuario, String senha) {
         this.usuario = usuario;
         this.senha = senha;
     }

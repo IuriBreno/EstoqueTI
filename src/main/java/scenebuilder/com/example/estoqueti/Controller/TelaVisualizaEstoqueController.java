@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -110,7 +111,6 @@ public class TelaVisualizaEstoqueController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Informação");
             alert.setHeaderText("Nenhum dado encontrado");
-            alert.setContentText("Não há estudantes cadastrados no banco de dados.");
             alert.show();
         }
     }
@@ -143,6 +143,11 @@ public class TelaVisualizaEstoqueController implements Initializable {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void editarEstoque(ActionEvent event) {
+
     }
 
 

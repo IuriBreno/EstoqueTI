@@ -36,7 +36,7 @@ public class ProdutoRepository {
                 produto.setNumeroNf(rs.getString("numeroNf"));
 
                 resultsBD.add(produto);
-                System.out.println(produto.getDescricao());
+
 
             }
 
