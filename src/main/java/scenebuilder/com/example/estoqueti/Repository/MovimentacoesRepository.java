@@ -4,7 +4,6 @@ import scenebuilder.com.example.estoqueti.Connection.ConnectBD;
 import scenebuilder.com.example.estoqueti.Model.Movimentacoes;
 import scenebuilder.com.example.estoqueti.Model.Setor;
 import scenebuilder.com.example.estoqueti.Model.UsersPrivacy;
-import scenebuilder.com.example.estoqueti.Model.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

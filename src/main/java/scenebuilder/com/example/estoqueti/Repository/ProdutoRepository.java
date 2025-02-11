@@ -31,7 +31,7 @@ public class ProdutoRepository {
                 produto.setQtdEstoque(rs.getInt("qtdEstoque"));
                 produto.setValorUnit(rs.getFloat("valorUnit"));
                 produto.setValorTotalEstoqueProduto(rs.getFloat("valorTotalEstoque"));
-                produto.setGetQtdEstoqueReal(rs.getInt("qtdEstoqueReal"));
+                produto.GetQtdEstoqueReal(rs.getInt("qtdEstoqueReal"));
                 produto.setDataInventario(rs.getDate("dataInventario"));
                 produto.setNumeroNf(rs.getString("numeroNf"));
 
@@ -45,6 +45,30 @@ public class ProdutoRepository {
         }
 
         return resultsBD;
+
+
+    }
+
+    public void editarProduto(Produto produto, int idProduto){
+
+        try {
+            String sql = "UPDATE produtos SET descricao=?, qtdEstoque=?, valorUnit=?, valorTotalEstoque=?, qtdEstoqueReal=?, dataInventario=?, numeroNf=? WHERE idprodutos=?";
+
+            PreparedStatement ps = ConnectBD.getConnection().prepareStatement(sql);
+
+            ps.setString(1, produto.getDescricao());
+            ps.setInt(2, produto.getQtdEstoque());
+            ps.setFloat(3, produto.getValorUnit());
+            ps.setFloat(4, produto.getValorTotalEstoqueProduto());
+            ps.setInt(5, produto.getGetQtdEstoqueReal());
+            ps.setDate(6, new java.sql.Date(produto.getDataInventario().getTime()));
+            ps.setString(7, produto.getNumeroNf());
+            ps.setInt(8, produto.getIdProduto());
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println("ERRO: " + e.getMessage());
+        }
 
 
     }

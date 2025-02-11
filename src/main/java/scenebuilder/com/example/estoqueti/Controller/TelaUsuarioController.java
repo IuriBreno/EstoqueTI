@@ -1,23 +1,35 @@
 package scenebuilder.com.example.estoqueti.Controller;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import scenebuilder.com.example.estoqueti.Model.Login;
 
 public class TelaUsuarioController {
 
-    Stage janela;
+    Login dadosLogin = new Login();
 
+    @FXML
+    void movimentacoes(MouseEvent event) {
 
-    public void start(Stage stage) throws IOException {
-        janela = stage;
-        Parent tela = FXMLLoader.load(getClass().getResource("acesso_user.fxml"));
+        try{
+            System.out.println(dadosLogin.getTipoLogin());
+            dadosLogin.setTipoLogin(0);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/movimentacoes.fxml"));
+            Parent root = loader.load();
 
-        Scene scene = new Scene(tela);
-        janela.setScene(scene);
-        janela.show();
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
 }

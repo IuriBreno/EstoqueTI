@@ -11,7 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import scenebuilder.com.example.estoqueti.Model.Usuario;
+import scenebuilder.com.example.estoqueti.Model.Login;
 import scenebuilder.com.example.estoqueti.Repository.LoginRepository;
 
 import java.net.URL;
@@ -30,7 +30,7 @@ public class LoginController implements Initializable {
     private TextField usuario;
 
     LoginRepository loginRepository = new LoginRepository();
-    Usuario login;
+
     TelaUsuarioController telaUsuarioController;
 
     @Override
@@ -39,42 +39,42 @@ public class LoginController implements Initializable {
     }
     @FXML
     void Aut_Login(ActionEvent event) {
-
-
-        if(validaCamposVazios()){
-            //String nomeUsuario = usuario.getText().toString();
-            //String senhaUsuario = senha.getText();
-
-            Usuario dadosLogin = new Usuario(usuario.getText().toString(),senha.getText());
+        if (validaCamposVazios()) {
+            Login dadosLogin = new Login();
+            dadosLogin.setUsuario(usuario.getText());
+            dadosLogin.setSenha(senha.getText());
 
             try {
-                Stage stage = (Stage) usuario.getScene().getWindow(); // Obtém a janela atual
-                FXMLLoader loader = new FXMLLoader();
+                Login loginRetornado = loginRepository.validaLoginUser(dadosLogin);
 
-                if (loginRepository.validaLoginAdm(dadosLogin)) {
-                    System.out.println("EXISTE ADM. VAMOS CHAMAR AGORA A TELA DO ADM");
-                    loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
-                } else if (loginRepository.validaLoginUser(dadosLogin)) {
-                    System.out.println("EXISTE USUÁRIO. VAMOS CHAMAR A TELA DO USUÁRIO");
-                    loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
+                if (loginRetornado != null) {
+                    Login.setUsuarioLogado(loginRetornado);
+
+                    Stage stage = (Stage) usuario.getScene().getWindow();
+                    FXMLLoader loader = new FXMLLoader();
+
+                    if (loginRetornado.getTipoLogin() == 1) {
+                        loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
+                    } else {
+                        loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
+                    }
+
+                    Parent root = loader.load();
+                    Scene scene = new Scene(root);
+                    stage.setScene(scene);
+                    stage.show();
                 } else {
-                    System.out.println("NÃO EXISTE USUÁRIO E NEM ADM");
-                    return;
+                    System.out.println("Usuário ou senha incorretos.");
                 }
-
-                Parent root = loader.load();
-                Scene scene = new Scene(root);
-                stage.setScene(scene);
-                stage.show();
-
-
-            }catch (Exception e){
-                System.out.println(e.getMessage());
+            } catch (Exception e) {
+                System.out.println("Erro ao realizar o login: " + e.getMessage());
+                e.printStackTrace();
             }
-
+        } else {
+            System.out.println("Por favor, preencha todos os campos!");
         }
-
     }
+
 
 
     public boolean validaCamposVazios() {
@@ -88,5 +88,8 @@ public class LoginController implements Initializable {
         return true;
 
     }
+
+
+
 
 }

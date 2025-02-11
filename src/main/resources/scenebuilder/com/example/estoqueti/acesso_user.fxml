@@ -51,7 +51,7 @@
                   <Font size="20.0" />
                </font>
             </Text>
-            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="282.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="282.0" layoutY="75.0" onMouseClicked="#movimentacoes" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/HISTÓRICO.png" />
                </image>

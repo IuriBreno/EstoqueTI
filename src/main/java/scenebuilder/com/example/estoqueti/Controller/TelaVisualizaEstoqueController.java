@@ -71,10 +71,14 @@ public class TelaVisualizaEstoqueController implements Initializable {
     @FXML
     private TextField valorTotalEstoqueProduto;
 
-    private boolean modeEdit = false;// Indica se estamos editando um estudante
+    @FXML
+    private TextField valorunitario;
+
+    private boolean modeEdit = false;// Indica se estamos editando um produto
 
     ProdutoRepository produtoRepository = new ProdutoRepository();
     Produto produto = new Produto();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -124,7 +128,9 @@ public class TelaVisualizaEstoqueController implements Initializable {
         qtdEstoqueTotalProduto.setText(String.valueOf(produtoSelecionado.getQtdEstoque()));
         qtdEstoqueRealProduto.setText(String.valueOf(produtoSelecionado.getGetQtdEstoqueReal()));
         valorTotalEstoqueProduto.setText(String.valueOf(produtoSelecionado.getValorTotalEstoqueProduto()));
+        valorunitario.setText(String.valueOf(produtoSelecionado.getValorUnit()));
         produto = produtoSelecionado;
+
     }
 
     @FXML
@@ -146,9 +152,36 @@ public class TelaVisualizaEstoqueController implements Initializable {
     }
 
     @FXML
-    void editarEstoque(ActionEvent event) {
+    void editarAlterecaoEstoque(ActionEvent event) {
+
+        produto.setDescricao(descricaoProduto.getText());
+        produto.setQtdEstoque(Integer.valueOf(qtdEstoqueTotalProduto.getText()));
+        produto.setValorUnit(Float.valueOf(valorunitario.getText()));
+        produto.setNumeroNf(numeroNf.getText());
+        produto.setQtdEstoqueReal(Integer.valueOf(qtdEstoqueRealProduto.getText()));
+        produto.setValorTotalEstoqueProduto(Float.valueOf(valorTotalEstoqueProduto.getText()));
+
+        if(modeEdit == true){
+        produtoRepository.editarProduto(produto, produto.getIdProduto());
+        }
+
+        limparCamps();
+
 
     }
+    public void limparCamps(){
+
+        descricaoProduto.clear();
+        qtdEstoqueTotalProduto.clear();
+        valorunitario.clear();
+        numeroNf.clear();
+        qtdEstoqueRealProduto.clear();
+        valorTotalEstoqueProduto.clear();
+        dataInventario.clear();
+        carregaDados();
+    }
+
+
 
 
 

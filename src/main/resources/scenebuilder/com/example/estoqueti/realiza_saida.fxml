@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="720.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="677.0" prefWidth="720.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenebuilder.com.example.estoqueti.Controller.TelaSaidaController">
    <children>
       <ImageView fitHeight="108.0" fitWidth="105.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,7 +24,7 @@
             <Font size="27.0" />
          </font>
       </Text>
-      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="674.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="674.0" layoutY="19.0" onMouseClicked="#voltarMenuAdm" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/home.png" />
          </image>
@@ -33,7 +33,7 @@
          <columns>
             <TableColumn fx:id="coluna_descricao" prefWidth="361.0" style="-fx-alignment: CENTER;" text="PRODUTO" />
             <TableColumn fx:id="coluna_qtdEstoqueReal" prefWidth="90.0" style="-fx-alignment: CENTER;" text="QUANTIDADE" />
-            <TableColumn fx:id="coluna_valorTotalProduto" prefWidth="273.0" style="-fx-alignment: CENTER;" text="DATA DE INVENTÁRIO" />
+            <TableColumn fx:id="colunaDataInventario" prefWidth="273.0" style="-fx-alignment: CENTER;" text="DATA DE INVENTÁRIO" />
          </columns>
          <cursor>
             <Cursor fx:constant="CLOSED_HAND" />
@@ -41,7 +41,7 @@
       </TableView>
       <AnchorPane layoutX="-4.0" layoutY="97.0" prefHeight="200.0" prefWidth="726.0">
          <children>
-            <TextField fx:id="descricaoProduto" layoutX="15.0" layoutY="47.0" prefHeight="40.0" prefWidth="315.0" promptText="Campo obrigatório" />
+            <TextField fx:id="descricaoProduto" layoutX="15.0" layoutY="47.0" prefHeight="40.0" prefWidth="315.0" promptText="Selecione o produto" />
             <Text fill="#ffeeee" layoutX="14.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição do produto:">
                <font>
                   <Font size="19.0" />
@@ -70,8 +70,8 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField fx:id="data" layoutX="419.0" layoutY="119.0" prefHeight="40.0" prefWidth="178.0" />
-            <Button layoutX="420.0" layoutY="170.0" mnemonicParsing="false" onMouseClicked="#botaoRealizaSaida" prefHeight="40.0" prefWidth="84.0" text="Enviar">
+            <TextField fx:id="dataSaida" layoutX="419.0" layoutY="119.0" prefHeight="40.0" prefWidth="178.0" />
+            <Button fx:id="salvarSaida" layoutX="420.0" layoutY="170.0" mnemonicParsing="false" onMouseClicked="#botaoRealizaSaida" prefHeight="40.0" prefWidth="84.0" text="Enviar">
                <font>
                   <Font size="17.0" />
                </font>

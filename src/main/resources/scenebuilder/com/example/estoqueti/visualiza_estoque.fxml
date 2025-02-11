@@ -39,11 +39,11 @@
                <font>
                   <Font name="Arial Bold Italic" size="21.0" />
                </font></TextField>
-            <TextField fx:id="dataInventario" layoutX="390.0" layoutY="8.0" prefHeight="40.0" prefWidth="157.0">
+            <TextField fx:id="dataInventario" editable="false" layoutX="390.0" layoutY="8.0" prefHeight="40.0" prefWidth="157.0">
                <font>
                   <Font name="Arial Bold Italic" size="21.0" />
                </font></TextField>
-            <TextField fx:id="numeroNf" editable="false" layoutX="580.0" layoutY="8.0" prefHeight="40.0" prefWidth="217.0">
+            <TextField fx:id="numeroNf" layoutX="580.0" layoutY="8.0" prefHeight="40.0" prefWidth="217.0">
                <font>
                   <Font name="Arial Bold Italic" size="21.0" />
                </font></TextField>
@@ -57,11 +57,26 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="valorTotalEstoqueProduto" editable="false" layoutX="300.0" layoutY="70.0" prefHeight="40.0" prefWidth="161.0">
+            <TextField fx:id="valorTotalEstoqueProduto" layoutX="300.0" layoutY="70.0" prefHeight="40.0" prefWidth="161.0">
                <font>
                   <Font name="Arial Bold Italic" size="21.0" />
                </font></TextField>
             <Text fill="#f8f6f6" layoutX="300.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor total em estoque">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Button id="botaoFiltrar" layoutX="651.0" layoutY="70.0" mnemonicParsing="false" onAction="#editarAlterecaoEstoque" prefHeight="40.0" prefWidth="161.0" text="Salvar alterações">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <TextField fx:id="valorunitario" layoutX="483.0" layoutY="70.0" prefHeight="40.0" prefWidth="161.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font>
+            </TextField>
+            <Text fill="#f8f6f6" layoutX="483.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor unitário">
                <font>
                   <Font size="16.0" />
                </font>

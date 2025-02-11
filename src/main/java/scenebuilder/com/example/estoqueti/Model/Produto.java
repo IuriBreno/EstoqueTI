@@ -37,7 +37,7 @@ public class Produto {
         this.qtdEstoque = qtdEstoque;
     }
 
-    public void setGetQtdEstoqueReal(Integer getQtdEstoqueReal) {
+    public void GetQtdEstoqueReal(Integer getQtdEstoqueReal) {
         this.getQtdEstoqueReal = getQtdEstoqueReal;
     }
 
@@ -69,15 +69,11 @@ public class Produto {
         return qtdEstoque;
     }
 
-    public void setQtdEstoque(int qtdEstoque) {
-        this.qtdEstoque = qtdEstoque;
-    }
-
     public int getGetQtdEstoqueReal() {
         return getQtdEstoqueReal;
     }
 
-    public void setGetQtdEstoqueReal(int getQtdEstoqueReal) {
+    public void setQtdEstoqueReal(int getQtdEstoqueReal) {
         this.getQtdEstoqueReal = getQtdEstoqueReal;
     }
 
