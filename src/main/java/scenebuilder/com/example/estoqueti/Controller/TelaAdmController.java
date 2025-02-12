@@ -35,8 +35,6 @@ public class TelaAdmController {
     void imageClick_Movimentacoes(MouseEvent event) {
 
         try{
-            dadosLogin.setTipoLogin(1);
-            System.out.println("entrando na tela adm controller com stauts de:" + dadosLogin.getTipoLogin());
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/movimentacoes.fxml"));
             Parent root = loader.load();
@@ -46,7 +44,27 @@ public class TelaAdmController {
 
             stage.setScene(scene);
             stage.show();
-            System.out.println("sainda da tela adm controller com stauts de:" + dadosLogin.getTipoLogin());
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void imageClick_RealizaSaida(MouseEvent event) {
+
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/realiza_saida.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
 
         }catch (Exception e){
             e.printStackTrace();

@@ -36,7 +36,7 @@
                   <Image url="@resources/visu_estoque.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="64.0" fitWidth="62.0" layoutX="500.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="64.0" fitWidth="62.0" layoutX="500.0" layoutY="53.0" onMouseClicked="#imageClick_RealizaSaida" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/realiza_saida.png" />
                </image>
