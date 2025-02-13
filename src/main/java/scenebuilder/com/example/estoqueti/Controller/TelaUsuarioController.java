@@ -9,14 +9,12 @@ import javafx.stage.Stage;
 import scenebuilder.com.example.estoqueti.Model.Login;
 
 public class TelaUsuarioController {
-
     Login dadosLogin = new Login();
 
     @FXML
     void movimentacoes(MouseEvent event) {
 
         try{
-            System.out.println(dadosLogin.getTipoLogin());
             dadosLogin.setTipoLogin(0);
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/movimentacoes.fxml"));
             Parent root = loader.load();
@@ -47,9 +45,11 @@ public class TelaUsuarioController {
             stage.show();
 
 
+
         }catch (Exception e){
             e.printStackTrace();
         }
     }
+
 
 }

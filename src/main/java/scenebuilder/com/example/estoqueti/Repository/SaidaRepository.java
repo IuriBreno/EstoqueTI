@@ -72,11 +72,64 @@ public class SaidaRepository {
 
     }
 
-    public void registraSaida(Movimentacoes movimentacao, int idProduto){
+    public void registraSaida(Saida saida, String descricaoProduto){
 
-        List<Movimentacoes> resultsBD = new ArrayList<>();
+        try {
+            String sql = "INSERT INTO movimentacoes (nomeUsuario, descricaoProduto, setor, idChamadoGLPI, data, qtdProduto) VALUES (?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = ConnectBD.getConnection().prepareStatement(sql);
+            ps.setString(1, saida.getNomeUsuario());
+            ps.setString(2, saida.getDescProduto());
+            ps.setString(3, saida.getNomeSetor());
+            ps.setString(4, saida.getChamado());
+            ps.setDate(5, new java.sql.Date(saida.getDataSaida().getTime()));
+            ps.setInt(6,saida.getQuantidade());
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            System.out.println("ERRO NA INSERÇÃO DA MOVIMENTAÇÃO: " + e.getMessage());
+
+        }
+
+        try {
+            String sqlSelect = "SELECT qtdEstoqueReal FROM produtos WHERE descricao = ?";
+            PreparedStatement ps1 = ConnectBD.getConnection().prepareStatement(sqlSelect);
+            ps1.setString(1, descricaoProduto);
+            ResultSet rs = ps1.executeQuery();
+
+            if (rs.next()) {
+                System.out.println("VAI TIRAR");
+                int quantidadeAtual = rs.getInt("qtdEstoqueReal");
+                int novaQuantidade = quantidadeAtual - saida.getQuantidade();
+
+                try {
+                    String sqlUpdate = "UPDATE produtos SET qtdEstoqueReal = ? WHERE descricao = ?";
+                    PreparedStatement sqlUpdate1 = ConnectBD.getConnection().prepareStatement(sqlUpdate);
+                    sqlUpdate1.setInt(1, novaQuantidade);
+                    sqlUpdate1.setString(2, descricaoProduto);
+
+                    int rowsUpdated = sqlUpdate1.executeUpdate();
+
+                } catch (Exception e) {
+                    System.out.println("ERRO NA ALTERAÇÃO DO PRODUTO: " + e.getMessage());
+                    e.printStackTrace();  // Para imprimir o erro completo
+                }
+            } else {
+                System.out.println("Produto não encontrado no BD.");
+            }
+        } catch (Exception e) {
+            System.out.println("ERRO NO SELECT PARA PEGAR A QUANTIDADE REAL: " + e.getMessage());
+        }
+
+
+
+
+
     }
 
+
+
 }
+
+
 
 

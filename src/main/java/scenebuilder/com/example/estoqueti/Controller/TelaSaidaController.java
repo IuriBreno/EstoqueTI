@@ -7,23 +7,23 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import scenebuilder.com.example.estoqueti.Model.Login;
 import scenebuilder.com.example.estoqueti.Model.Produto;
+import scenebuilder.com.example.estoqueti.Model.Saida;
 import scenebuilder.com.example.estoqueti.Model.Setor;
 import scenebuilder.com.example.estoqueti.Repository.SaidaRepository;
 
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 public class TelaSaidaController implements Initializable {
 
@@ -58,7 +58,8 @@ public class TelaSaidaController implements Initializable {
     private TableView<Produto> tabelaProdutos;
 
     SaidaRepository saidaRepository = new SaidaRepository();
-
+    private String nomeUsuario;
+    int qtdEstoqueBanco;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -93,23 +94,35 @@ public class TelaSaidaController implements Initializable {
 
         descricaoProduto.setText(produtoSelecionado.getDescricao());
 
+        qtdEstoqueBanco = produtoSelecionado.getGetQtdEstoqueReal();
+
     }
 
 
     @FXML
     void voltarMenuAdm(MouseEvent event) {
+        try {
+            Login usuarioLogado = Login.getUsuarioLogado();
+            if (usuarioLogado == null) {
+                System.out.println("Erro: Nenhum usuário autenticado.");
+                return;
+            }
 
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            if (usuarioLogado.getTipoLogin() == 1) {
+                loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
+            } else {
+                loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
+            }
+
             Parent root = loader.load();
-
-            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
-
             stage.setScene(scene);
             stage.show();
 
-        }catch (Exception e){
+        } catch (Exception e) {
+            System.out.println("Erro ao voltar para o menu inicial: " + e.getMessage());
             e.printStackTrace();
         }
     }
@@ -135,6 +148,7 @@ public class TelaSaidaController implements Initializable {
         String dataHoje = LocalDate.now().format(formatter);
         dataSaida.setText(dataHoje);
     }
+
     @FXML
     void botaoRealizaSaida(MouseEvent event) {
 
@@ -144,14 +158,44 @@ public class TelaSaidaController implements Initializable {
             alert.setHeaderText("Preencha todos os campos");
             alert.showAndWait();
         } else {
+            try{
+                if(Integer.parseInt(quantidade.getText()) > qtdEstoqueBanco){
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Informação");
+                    alert.setHeaderText("A quantidade de estoque é insuficiente.");
+                    alert.showAndWait();
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Informação");
-            alert.setHeaderText("Saída realizada com sucesso!");
-            alert.showAndWait();
+                }else{
+                    Saida saida = new Saida();
+                    saida.setDescProduto(descricaoProduto.getText());
+                    saida.setNomeSetor(setores.getValue().getNomeSetor());
+                    saida.setQuantidade(Integer.parseInt(quantidade.getText()));
+                    saida.setChamado(idChamado.getText());
+                    String usuarioLogado = Login.getUsuarioLogado().getUsuario();
+                    saida.setNomeUsuario(usuarioLogado);
 
-            // Limpa os campos após salvar os dados
+                    java.sql.Date data = java.sql.Date.valueOf(dataSaida.getText());
+                    saida.setDataSaida(data);
+
+                    saidaRepository.registraSaida(saida, descricaoProduto.getText());
+
+
+
+
+                }
+            }catch (NumberFormatException e){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Informação");
+                alert.setHeaderText("Quantidade inválida.");
+                alert.showAndWait();
+            }
+
+
+            carregaDados();
+            carregarSetoresNoComboBox();
+            setDataSaidaHoje();
             limpaCampos();
+
         }
     }
 
@@ -159,7 +203,6 @@ public class TelaSaidaController implements Initializable {
         descricaoProduto.clear();
         quantidade.clear();
         idChamado.clear();
-        dataSaida.clear();
         setores.setValue(null);
     }
 

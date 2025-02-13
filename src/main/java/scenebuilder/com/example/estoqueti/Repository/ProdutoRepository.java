@@ -66,6 +66,8 @@ public class ProdutoRepository {
             ps.setInt(8, produto.getIdProduto());
 
             ps.executeUpdate();
+
+
         } catch (Exception e) {
             System.out.println("ERRO: " + e.getMessage());
         }

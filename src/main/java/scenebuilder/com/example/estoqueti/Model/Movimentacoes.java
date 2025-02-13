@@ -8,6 +8,7 @@ public class Movimentacoes {
     private String setor;
     private String idChamado;
     private String data;
+    private int quantidade;
 
     public String getNomeUsuario() {
         return nomeUsuario;
@@ -31,7 +32,7 @@ public class Movimentacoes {
         this.setor = setor;
     }
 
-    private int quantidade;
+
 
     public int getIdMovimentacao() {
         return idMovimentacao;

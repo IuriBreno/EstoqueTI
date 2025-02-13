@@ -31,7 +31,8 @@ public class LoginController implements Initializable {
 
     LoginRepository loginRepository = new LoginRepository();
 
-    TelaUsuarioController telaUsuarioController;
+    TelaUsuarioController telaUsuarioController = new TelaUsuarioController();
+    TelaAdmController telaAdmController = new TelaAdmController();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,8 +56,12 @@ public class LoginController implements Initializable {
 
                     if (loginRetornado.getTipoLogin() == 1) {
                         loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
+
+
+
                     } else {
                         loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
+
                     }
 
                     Parent root = loader.load();

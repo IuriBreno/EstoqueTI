@@ -7,6 +7,7 @@ public class Login {
     private String senha;
     private int tipoLogin;
 
+
 //1 user adm
 //0 user comum
 
@@ -50,5 +51,8 @@ public class Login {
         this.senha = senha;
     }
 
-
+    @Override
+    public String toString() {
+        return usuario;
+    }
 }

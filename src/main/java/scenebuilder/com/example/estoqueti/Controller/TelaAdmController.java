@@ -12,6 +12,8 @@ import scenebuilder.com.example.estoqueti.Model.Login;
 
 public class TelaAdmController {
 
+    private String nomeUsuario;
+
     Login dadosLogin = new Login();
 
     @FXML
@@ -69,6 +71,10 @@ public class TelaAdmController {
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void recebeUsuario(String nomeUsuario){
+        this.nomeUsuario = nomeUsuario;
     }
 
 }
