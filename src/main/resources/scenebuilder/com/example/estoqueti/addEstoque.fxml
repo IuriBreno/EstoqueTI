@@ -10,20 +10,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="653.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="445.0" prefWidth="653.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenebuilder.com.example.estoqueti.Controller.TelaEstoqueController">
    <children>
       <ImageView fitHeight="108.0" fitWidth="105.0" layoutX="23.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/LOGO_VULCABRAS_V_cor.png" />
          </image>
       </ImageView>
-      <Text fill="#f8f5f5" layoutX="239.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INVENTÁRIO" wrappingWidth="232.84765625">
+      <Text fill="#f8f5f5" layoutX="133.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADICIONAR ESTOQUE" wrappingWidth="390.84765625">
          <font>
             <Font size="39.0" />
          </font>
       </Text>
-      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="594.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="594.0" layoutY="14.0" onMouseClicked="#voltarMenuInicial" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@resources/home.png" />
          </image>
@@ -37,37 +36,52 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField layoutX="26.0" layoutY="42.0" prefHeight="40.0" prefWidth="367.0" promptText="Campo obrigatório" />
+            <TextField fx:id="descricaoProduto" layoutX="26.0" layoutY="42.0" prefHeight="40.0" prefWidth="367.0" promptText="Campo obrigatório">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font></TextField>
             <Text fill="#ffeeee" layoutX="26.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor unitário: ">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField layoutX="26.0" layoutY="213.0" prefHeight="40.0" prefWidth="125.0" promptText="Campo obrigatório" />
+            <TextField fx:id="valorUnit" layoutX="26.0" layoutY="213.0" prefHeight="40.0" prefWidth="170.0" promptText="99.99">
+               <font>
+                  <Font size="17.0" />
+               </font></TextField>
             <Text fill="#ffeeee" layoutX="26.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField layoutX="26.0" layoutY="126.0" prefHeight="40.0" prefWidth="125.0" promptText="Campo obrigatório" />
+            <TextField fx:id="quantidade" layoutX="26.0" layoutY="126.0" prefHeight="40.0" prefWidth="170.0" promptText="Campo obrigatório">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font></TextField>
             <Text fill="#ffeeee" layoutX="210.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField layoutX="210.0" layoutY="126.0" prefHeight="40.0" prefWidth="125.0" />
+            <TextField fx:id="dataInventario" editable="false" layoutX="210.0" layoutY="126.0" prefHeight="40.0" prefWidth="186.0">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
             <Text fill="#ffeeee" layoutX="210.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número NF:">
                <font>
                   <Font size="19.0" />
                </font>
             </Text>
-            <TextField layoutX="210.0" layoutY="213.0" prefHeight="40.0" prefWidth="125.0" />
-            <Button layoutX="393.0" layoutY="213.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="84.0" text="Enviar">
+            <TextField fx:id="numeroNf" layoutX="210.0" layoutY="213.0" prefHeight="40.0" prefWidth="170.0">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font></TextField>
+            <Button fx:id="salvarInventario" layoutX="393.0" layoutY="213.0" mnemonicParsing="false" onMouseClicked="#salvarEstoque" prefHeight="40.0" prefWidth="84.0" text="Enviar">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button layoutX="488.0" layoutY="213.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="152.0" text="Limpar campos">
+            <Button fx:id="limparCampos" layoutX="488.0" layoutY="213.0" mnemonicParsing="false" onMouseClicked="#limparCampos" prefHeight="40.0" prefWidth="152.0" text="Limpar campos">
                <font>
                   <Font size="17.0" />
                </font>

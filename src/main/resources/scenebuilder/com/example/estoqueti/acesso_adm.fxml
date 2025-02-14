@@ -51,12 +51,12 @@
                   <Font size="19.0" />
                </font>
             </Text>
-            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="32.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="62.0" fitWidth="62.0" layoutX="32.0" layoutY="53.0" onMouseClicked="#image_ClickAddEstoque" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/inventario_adm.png" />
                </image>
             </ImageView>
-            <Text fill="WHITE" layoutX="21.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inventário">
+            <Text fill="WHITE" layoutX="9.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add estoque">
                <font>
                   <Font size="19.0" />
                </font>

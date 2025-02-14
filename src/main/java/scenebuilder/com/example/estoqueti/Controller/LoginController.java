@@ -61,7 +61,6 @@ public class LoginController implements Initializable {
 
                     } else {
                         loader.setLocation(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
-
                     }
 
                     Parent root = loader.load();
@@ -69,7 +68,10 @@ public class LoginController implements Initializable {
                     stage.setScene(scene);
                     stage.show();
                 } else {
-                    System.out.println("Usuário ou senha incorretos.");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Informação");
+                    alert.setHeaderText("Usuário não encontrado.");
+                    alert.show();
                 }
             } catch (Exception e) {
                 System.out.println("Erro ao realizar o login: " + e.getMessage());

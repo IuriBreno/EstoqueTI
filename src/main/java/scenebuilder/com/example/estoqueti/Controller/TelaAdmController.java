@@ -77,4 +77,23 @@ public class TelaAdmController {
         this.nomeUsuario = nomeUsuario;
     }
 
+    @FXML
+    void image_ClickAddEstoque(MouseEvent event) {
+        try{
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/addEstoque.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+
+            stage.setScene(scene);
+            stage.show();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 }

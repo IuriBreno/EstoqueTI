@@ -97,7 +97,6 @@ public class SaidaRepository {
             ResultSet rs = ps1.executeQuery();
 
             if (rs.next()) {
-                System.out.println("VAI TIRAR");
                 int quantidadeAtual = rs.getInt("qtdEstoqueReal");
                 int novaQuantidade = quantidadeAtual - saida.getQuantidade();
 
@@ -119,10 +118,6 @@ public class SaidaRepository {
         } catch (Exception e) {
             System.out.println("ERRO NO SELECT PARA PEGAR A QUANTIDADE REAL: " + e.getMessage());
         }
-
-
-
-
 
     }
 

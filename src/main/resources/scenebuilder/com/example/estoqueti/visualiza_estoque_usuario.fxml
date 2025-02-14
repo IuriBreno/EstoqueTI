@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="513.0" prefWidth="857.0" style="-fx-background-color: #243b66;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scenebuilder.com.example.estoqueti.Controller.TelaVisualizaEstoqueUserController">
+   <children>
+      <ImageView fitHeight="108.0" fitWidth="105.0" layoutX="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/LOGO_VULCABRAS_V_cor.png" />
+         </image>
+      </ImageView>
+      <Text fill="#f8f5f5" layoutX="236.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VISUALIZAÇÃO DE ESTOQUE" wrappingWidth="526.84765625">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Text>
+      <Pane layoutX="19.0" layoutY="99.0" prefHeight="110.0" prefWidth="819.0">
+         <children>
+            <TextField fx:id="descricaoProduto" editable="false" layoutX="14.0" layoutY="8.0" prefHeight="40.0" prefWidth="339.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="qtdEstoqueTotalProduto" editable="false" layoutX="14.0" layoutY="70.0" prefHeight="40.0" prefWidth="130.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font></TextField>
+            <TextField fx:id="qtdEstoqueRealProduto" editable="false" layoutX="166.0" layoutY="70.0" prefHeight="40.0" prefWidth="114.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font></TextField>
+            <TextField fx:id="dataInventario" editable="false" layoutX="390.0" layoutY="8.0" prefHeight="40.0" prefWidth="157.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font></TextField>
+            <TextField fx:id="numeroNf" editable="false" layoutX="580.0" layoutY="8.0" prefHeight="40.0" prefWidth="217.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font></TextField>
+            <Text fill="#f8f6f6" layoutX="14.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque total">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <Text fill="#f8f6f6" layoutX="166.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estoque real">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="valorTotalEstoqueProduto" editable="false" layoutX="300.0" layoutY="70.0" prefHeight="40.0" prefWidth="161.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font></TextField>
+            <Text fill="#f8f6f6" layoutX="300.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor total em estoque">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <TextField fx:id="valorunitario" editable="false" layoutX="483.0" layoutY="70.0" prefHeight="40.0" prefWidth="161.0">
+               <font>
+                  <Font name="Arial Bold Italic" size="21.0" />
+               </font>
+            </TextField>
+            <Text fill="#f8f6f6" layoutX="483.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Valor unitário">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TableView fx:id="tabelaProdutos" layoutX="-2.0" layoutY="209.0" prefHeight="302.0" prefWidth="857.0">
+        <columns>
+          <TableColumn fx:id="coluna_descricao" prefWidth="290.0" style="-fx-alignment: CENTER;" text="DESCRIÇÃO" />
+            <TableColumn fx:id="coluna_valorUnitario" prefWidth="123.0" style="-fx-alignment: CENTER;" text="VALOR UNITÁRIO" />
+            <TableColumn fx:id="coluna_qtdEstoqueReal" prefWidth="100.0" style="-fx-alignment: CENTER;" text="ESTOQUE REAL" />
+            <TableColumn fx:id="coluna_valorTotalProduto" prefWidth="100.0" style="-fx-alignment: CENTER;" text="VALOR TOTAL" />
+            <TableColumn fx:id="coluna_dataInventario" prefWidth="122.0" style="-fx-alignment: CENTER;" text="DATA INVENTÁRIO" />
+            <TableColumn fx:id="coluna_numeroNf" prefWidth="122.0" style="-fx-alignment: CENTER;" text="NUMERO NF" />
+        </columns>
+         <cursor>
+            <Cursor fx:constant="CLOSED_HAND" />
+         </cursor>
+      </TableView>
+      <Text fill="#f8f6f6" layoutX="32.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descrição">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#f8f6f6" layoutX="409.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Data de inventário">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#f8f6f6" layoutX="599.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Número de NF">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="33.0" fitWidth="32.0" layoutX="806.0" layoutY="12.0" onMouseClicked="#voltaMenuInicial" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@resources/home.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

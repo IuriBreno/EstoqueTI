@@ -31,7 +31,7 @@
       </BorderPane>
       <AnchorPane layoutY="153.0" prefHeight="247.0" prefWidth="600.0">
          <children>
-            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="59.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="82.0" layoutX="59.0" layoutY="75.0" onMouseClicked="#image_clickVisuEstoqueUser" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@resources/visu_estoque.png" />
                </image>

@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class TelaVisualizaEstoqueController implements Initializable {
+public class TelaVisualizaEstoqueUserController implements Initializable {
 
     @FXML
     private TableColumn<Produto, Date> coluna_dataInventario;
@@ -137,7 +137,7 @@ public class TelaVisualizaEstoqueController implements Initializable {
     void voltaMenuInicial(MouseEvent event) {
 
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_adm.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/scenebuilder/com/example/estoqueti/acesso_user.fxml"));
             Parent root = loader.load();
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
@@ -151,24 +151,6 @@ public class TelaVisualizaEstoqueController implements Initializable {
         }
     }
 
-    @FXML
-    void editarAlterecaoEstoque(ActionEvent event) {
-
-        produto.setDescricao(descricaoProduto.getText());
-        produto.setQtdEstoque(Integer.valueOf(qtdEstoqueTotalProduto.getText()));
-        produto.setValorUnit(Float.valueOf(valorunitario.getText()));
-        produto.setNumeroNf(numeroNf.getText());
-        produto.setQtdEstoqueReal(Integer.valueOf(qtdEstoqueRealProduto.getText()));
-        produto.setValorTotalEstoqueProduto(Float.valueOf(valorTotalEstoqueProduto.getText()));
-
-        if(modeEdit == true){
-        produtoRepository.editarProduto(produto, produto.getIdProduto());
-        }
-
-        limparCamps();
-
-
-    }
     public void limparCamps(){
 
         descricaoProduto.clear();
